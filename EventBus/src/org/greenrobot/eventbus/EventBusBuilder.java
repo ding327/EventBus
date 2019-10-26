@@ -37,6 +37,7 @@ public class EventBusBuilder {
     boolean sendSubscriberExceptionEvent = true;
     boolean sendNoSubscriberEvent = true;
     boolean throwSubscriberException;
+    /***是否支持事件继承*/
     boolean eventInheritance = true;
     boolean ignoreGeneratedIndex;
     boolean strictMethodVerification;
@@ -164,7 +165,10 @@ public class EventBusBuilder {
         }
     }
 
-
+    /**
+     * 获取主线程封装的Support
+     * @return
+     */
     MainThreadSupport getMainThreadSupport() {
         if (mainThreadSupport != null) {
             return mainThreadSupport;

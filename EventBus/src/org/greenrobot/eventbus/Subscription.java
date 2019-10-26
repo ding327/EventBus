@@ -15,8 +15,14 @@
  */
 package org.greenrobot.eventbus;
 
+/**
+ * 存储器的作用
+ * 存储观察者/订阅者和其接收函数信息
+ */
 final class Subscription {
+    /*** 观察者/订阅者实例 */
     final Object subscriber;
+    /*** 接收Event事件的方法的封装类 */
     final SubscriberMethod subscriberMethod;
     /**
      * Becomes false as soon as {@link EventBus#unregister(Object)} is called, which is checked by queued event delivery
@@ -24,6 +30,11 @@ final class Subscription {
      */
     volatile boolean active;
 
+    /**
+     *
+     * @param subscriber 观察者/订阅者
+     * @param subscriberMethod 观察者/订阅者本身接收函数的存储器
+     */
     Subscription(Object subscriber, SubscriberMethod subscriberMethod) {
         this.subscriber = subscriber;
         this.subscriberMethod = subscriberMethod;

@@ -17,16 +17,32 @@ package org.greenrobot.eventbus;
 
 import java.lang.reflect.Method;
 
-/** Used internally by EventBus and generated subscriber indexes. */
+/**
+ * Used internally by EventBus and generated subscriber indexes.
+ * 存储器的作用
+ * 保存了带有EventBus规定注解的方法，方法的参数类型(即发送的event类型)， 注解的处理类型， 优先级，是否粘性
+ */
 public class SubscriberMethod {
     final Method method;
+    /*** 事件处理的线程模式 */
     final ThreadMode threadMode;
+    /*** 方法的参数类型(即发送的event事件类型)*/
     final Class<?> eventType;
+    /*** 优先级 */
     final int priority;
+    /*** 是否为粘性 */
     final boolean sticky;
     /** Used for efficient comparison */
     String methodString;
 
+    /**
+     *
+     * @param method 带有EventBus规定注解的方法
+     * @param eventType 方法的参数类型(即发送的event事件类型)
+     * @param threadMode 注解的处理类型
+     * @param priority 优先级
+     * @param sticky 是否粘性
+     */
     public SubscriberMethod(Method method, Class<?> eventType, ThreadMode threadMode, int priority, boolean sticky) {
         this.method = method;
         this.threadMode = threadMode;
