@@ -25,3 +25,8 @@ task wrapper(type: Wrapper) {
     gradleVersion = '4.1'
     distributionType = org.gradle.api.tasks.wrapper.Wrapper.DistributionType.ALL
 }
+
+//指定编译的编码
+tasks.withType(JavaCompile){
+    options.encoding = "UTF-8"
+}
